@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio Ilda Riani</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    /* Warna dan pengaturan dasar Bootstrap */
+    :root { --rose: #ff6b9a; --rose-tua: #d6457a; --ink: #2b1f2a; --mauve: #7a6770; --blush: #fff1f4;
+            --bs-body-font-family: "Poppins", sans-serif; --bs-body-color: var(--ink);
+            --bs-body-bg: var(--blush); --bs-link-color: var(--rose-tua); }
+    html { scroll-padding-top: 6rem; }
+    .teks-mauve { color: var(--mauve); }
+
+    /* Navbar */
+    .navbar-pill { max-width: 64rem; padding: .5rem 1.5rem; border-radius: 50rem; background: #fff; box-shadow: 0 10px 30px -10px rgb(255 107 154 / .45); }
+    .navbar-brand { font-weight: 800; }
+    .navbar .nav-link { color: var(--mauve); font-weight: 500; }
+    .navbar .nav-link:hover { color: var(--rose-tua); }
+
+    /* Tombol: satu class sudah memuat bentuk, ukuran, dan warna */
+    .tombol-utama, .tombol-outline, .tombol-pink { --bs-btn-border-radius: 50rem; --bs-btn-padding-x: 1.5rem; --bs-btn-padding-y: .7rem; --bs-btn-font-size: 1.1rem; --bs-btn-font-weight: 600; }
+    .tombol-utama { --bs-btn-color: #fff; --bs-btn-bg: var(--ink); --bs-btn-border-color: var(--ink); --bs-btn-hover-color: #fff; --bs-btn-hover-bg: #000; --bs-btn-hover-border-color: #000; --bs-btn-active-color: #fff; --bs-btn-active-bg: #000; }
+    .tombol-outline { --bs-btn-color: var(--ink); --bs-btn-bg: #fff; --bs-btn-border-width: 2px; --bs-btn-border-color: rgb(255 107 154 / .4); --bs-btn-hover-color: var(--ink); --bs-btn-hover-bg: #fff; --bs-btn-hover-border-color: var(--rose); --bs-btn-active-color: var(--ink); --bs-btn-active-bg: #fff; }
+    .tombol-pink { --bs-btn-padding-x: 1rem; --bs-btn-padding-y: .4rem; --bs-btn-font-size: .875rem; --bs-btn-color: #fff; --bs-btn-bg: var(--rose-tua); --bs-btn-border-color: var(--rose-tua); --bs-btn-hover-color: #fff; --bs-btn-hover-bg: #b9356a; --bs-btn-hover-border-color: #b9356a; --bs-btn-active-color: #fff; --bs-btn-active-bg: #b9356a; }
+
+    /* Hero */
+    .hero-judul { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; line-height: 1.15; }
+    .kursor-ketik::after { content: ""; display: inline-block; width: 4px; height: 1em; margin-left: 4px; background: var(--rose); vertical-align: -.12em; animation: kedip 1s steps(1) infinite; }
+    @keyframes kedip { 50% { opacity: 0; } }
+    .ikon-sosmed { display: grid; width: 3.5rem; height: 3.5rem; place-items: center; border-radius: 1rem; background: #fff; color: var(--ink); font-size: 1.4rem; box-shadow: 0 2px 8px rgb(0 0 0 / .06); }
+    .ikon-sosmed:hover { color: var(--rose-tua); }
+    .foto-profil { position: relative; width: clamp(16rem, 70vw, 26rem); aspect-ratio: 1; overflow: hidden; border: 10px solid #fff; border-radius: 50%; background: rgb(255 107 154 / .2); box-shadow: 0 25px 60px -20px rgb(255 107 154 / .7); }
+    .foto-profil img, .foto-profil span { position: absolute; inset: 0; }
+    .foto-profil img { width: 100%; height: 100%; object-fit: cover; }
+    .foto-profil span { display: grid; place-items: center; font-size: 5rem; font-weight: 800; color: var(--rose); }
+
+    /* Kartu, form, footer, modal */
+    .garis-judul { width: 5rem; height: 6px; border-radius: 99px; background: var(--rose); }
+    .kartu { --bs-card-bg: #fff; border: 0; border-radius: 1.5rem; box-shadow: 0 .125rem .25rem rgb(0 0 0 / .075); }
+    .kartu-gambar { display: grid; height: 8rem; margin: 1rem 1rem 0; place-items: center; overflow: hidden; border-radius: 1rem; background: var(--blush); font-size: 2.5rem; }
+    .kartu-gambar img { width: 100%; height: 100%; object-fit: cover; }
+    .input-form { border-radius: 1.5rem; }
+    .input-form:focus { border-color: var(--rose); box-shadow: 0 0 0 .25rem rgb(255 107 154 / .25); }
+    .footer-putih { background: #fff; color: var(--mauve); box-shadow: 0 -10px 30px rgb(255 107 154 / .1); }
+    .modal-garis-atas { height: .75rem; background: var(--rose); }
+  </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#menuNav" data-bs-root-margin="-30% 0px -60%" data-bs-smooth-scroll="true" tabindex="0">
+
+  <!-- NAVBAR -->
+  <header class="sticky-top px-3 pt-3">
+    <nav class="navbar navbar-expand-md navbar-pill mx-auto">
+      <a class="navbar-brand fs-5 me-3" href="#home">PORTFOLIO</a>
+      <div class="d-flex align-items-center gap-1 ms-auto order-md-last">
+        <button type="button" class="btn rounded-circle" aria-label="Ilda Riani" data-bs-toggle="modal" data-bs-target="#modalInfo"
+                data-judul="Profil Ilda Riani" data-meta="Mahasiswa Informatika, Semester 3"
+                data-isi="Suka bereksperimen web tapi dibantu ai hehe"><i class="bi bi-person-badge fs-5"></i></button>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav" aria-controls="menuNav" aria-expanded="false" aria-label="Buka menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="menuNav">
+        <ul class="navbar-nav mx-md-auto gap-md-3">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacts">Contacts</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="container py-5">
+      <div class="row align-items-lg-start g-5 py-lg-4">
+        <div class="col-lg-6 order-2 order-lg-1">
+          <h1 class="hero-judul">Halo, saya Ilda Riani</h1>
+          <p id="peran" class="kursor-ketik fs-2 fw-semibold mt-3 mb-0">&nbsp;</p>
+          <p class="teks-mauve fs-5 mt-4">Halo, saya Ilda Riani Mahasiswa Informatika, Universitas Sulawesi Barat. bagi saya coding itu seru tapi kalo disuruh asistensikan dan jelaskan kodenya satu-satu, angkat tangan ma saya kak. anu.. ini toh diinikan teruss itunya diitukan. #sahabatClaude #yaapapaoo </p>
+          <div class="d-flex flex-column flex-sm-row gap-3 mt-4">
+            <a href="#projects" class="btn tombol-utama">Explore Work <i class="bi bi-arrow-right"></i></a>
+            <a href="aset/cv.pdf" download class="btn tombol-outline">Download CV <i class="bi bi-download"></i></a>
+          </div>
+          <p class="small fw-bold teks-mauve mt-5 mb-2" style="letter-spacing: .2em">SOSIAL MEDIA</p>
+          <div class="d-flex gap-3">
+            <a href="https://www.instagram.com/ildarianii" target="_blank" rel="noopener" class="ikon-sosmed" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://github.com/ildarianii" target="_blank" rel="noopener" class="ikon-sosmed" aria-label="GitHub"><i class="bi bi-github"></i></a>
+            <a href="https://linkedin.com/" target="_blank" rel="noopener" class="ikon-sosmed" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 d-flex justify-content-center justify-content-lg-end">
+          <div class="foto-profil">
+            <span>I</span>
+            <img src="aset/ilda.jpg" alt="Foto Ilda Riani">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS: 1 kolom di HP, 2 di tablet, 3 di laptop -->
+    <section id="projects" class="container py-5">
+      <div class="text-center">
+        <h2 class="fw-bold display-6">Experience</h2>
+        <div class="garis-judul mx-auto mt-2"></div>
+        <p class="teks-mauve fs-5 mt-3">Beberapa pengalaman yang telah saya selesaikan baru-baru ini.</p>
+      </div>
+      <div class="row g-4 justify-content-center mt-3">
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card kartu h-100"><div class="kartu-gambar"><img src="aset/undangan.png" alt="Undangan Digital"></div>
+            <div class="card-body d-flex flex-column p-4">
+              <h3 class="h5 fw-bold">Undangan Digital</h3>
+              <p class="small teks-mauve flex-grow-1">Membuat undangan pernikahan digital berbasis web.</p>
+              <button class="btn tombol-pink align-self-start" data-bs-toggle="modal" data-bs-target="#modalInfo" data-judul="Undangan Digital"
+                      data-meta="Bukti:" data-isi="https://ildarianii.github.io/AndiPutri/?to=Ilda%20Riani">Lihat detail</button>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card kartu h-100"><div class="kartu-gambar"><img src="aset/45330.jpg" alt="Panitia MUBES"></div>
+            <div class="card-body d-flex flex-column p-4">
+              <h3 class="h5 fw-bold">Panitia MUBES</h3>
+              <p class="small teks-mauve flex-grow-1">Menjadi Panitia di Musyawrah besar informatics study club.</p>
+              <button class="btn tombol-pink align-self-start" data-bs-toggle="modal" data-bs-target="#modalInfo" data-judul="Panitia MUBES"
+                      data-meta="Bukti: " data-isi="Menjadi panitia musyawarah besar informatics study club dibagian (divisi) acara.">Lihat detail</button>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card kartu h-100"><div class="kartu-gambar"><img src="aset/sibadarrrr.png" alt="Desain aplikasi SIBADAR"></div>
+            <div class="card-body d-flex flex-column p-4">
+              <h3 class="h5 fw-bold">Tugas kelompok: design aplikasi</h3>
+              <p class="small teks-mauve flex-grow-1">Tugas kelompok: mengajukkan ide tema donor darah dan ikut serta mendesign gambaran aplikasi.</p>
+              <button class="btn tombol-pink align-self-start" data-bs-toggle="modal" data-bs-target="#modalInfo" data-judul="Grafika Komputer: Elips"
+                      data-meta="Bukti: " data-isi="https://www.figma.com/design/U7oY2rkAS0WeGnvuI0Cm0y/SIBADAR---Aplikasi-Mobile-Donor-Darah?t=mtS1FprlTH4cPy2b-1">Lihat detail</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS: form dengan validasi -->
+    <section id="contacts" class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-7 col-xl-6">
+          <div class="card kartu p-3 p-sm-4"><div class="card-body">
+            <h2 class="fw-bold mb-4">Kirim Pesan</h2>
+            <form id="form" novalidate>
+              <div class="mb-3"><label for="nama" class="form-label fw-semibold">Nama</label>
+                <input type="text" id="nama" class="form-control input-form" autocomplete="name"><div class="invalid-feedback"></div></div>
+              <div class="mb-3"><label for="email" class="form-label fw-semibold">Email</label>
+                <input type="email" id="email" class="form-control input-form" autocomplete="email"><div class="invalid-feedback"></div></div>
+              <div class="mb-4"><label for="pesan" class="form-label fw-semibold">Pesan</label>
+                <textarea id="pesan" rows="4" class="form-control input-form"></textarea><div class="invalid-feedback"></div></div>
+              <button type="submit" class="btn tombol-utama w-100">Kirim Pesan</button>
+              <div id="sukses" class="alert alert-success rounded-4 d-none mt-3 mb-0" role="status">Pesan terkirim. Terima kasih!</div>
+            </form>
+          </div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-putih text-center small py-4 mt-5">&copy; <span id="tahun">2026</span> Ilda. Dibuat untuk tugas Pemrograman Web.</footer>
+
+  <!-- MODAL: satu modal dipakai semua tombol -->
+  <div class="modal fade" id="modalInfo" tabindex="-1" aria-labelledby="modalJudul" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 rounded-4 overflow-hidden">
+        <div class="modal-garis-atas"></div>
+        <div class="modal-header border-0 pb-0">
+          <h2 class="modal-title h4 fw-bold" id="modalJudul"></h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body"><p id="modalMeta" class="small fw-bold mb-2" style="color: var(--rose-tua)"></p><p id="modalIsi" class="teks-mauve mb-0"></p></div>
+        <div class="modal-footer border-0 pt-0"><button type="button" class="btn tombol-pink w-100" data-bs-dismiss="modal">Tutup</button></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const $ = id => document.getElementById(id);
+
+    // 1. Teks peran yang mengetik sendiri
+    const daftarPeran = ['"Siapapun bisa jadi apapun"'];
+    let p = 0, h = 0, hapus = false;
+    function ketik() {
+      const teks = daftarPeran[p];
+      h += hapus ? -1 : 1;
+      $('peran').textContent = teks.slice(0, h);
+      let jeda = hapus ? 50 : 100;
+      if (!hapus && h === teks.length) { hapus = true; jeda = 1500; }
+      else if (hapus && h === 0) { hapus = false; p = (p + 1) % daftarPeran.length; jeda = 400; }
+      setTimeout(ketik, jeda);
+    }
+    ketik();
+
+    // 2. Modal: isi diambil dari atribut data-* tombol yang diklik
+    $('modalInfo').addEventListener('show.bs.modal', e => {
+      const d = e.relatedTarget.dataset;
+      $('modalJudul').textContent = d.judul;
+      $('modalMeta').textContent = d.meta;
+      $('modalIsi').textContent = d.isi;
+    });
+
+    // 3. Validasi form (memakai kelas is-invalid Bootstrap)
+    const aturan = {
+      nama: v => v.length < 3 ? 'Nama minimal 3 karakter.' : '',
+      email: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) ? '' : 'Format email belum benar, contoh: nama@email.com.',
+      pesan: v => v.length < 10 ? 'Pesan minimal 10 karakter.' : ''
+    };
+    function validasi(id) {
+      const el = $(id), error = aturan[id](el.value.trim());
+      el.nextElementSibling.textContent = error;
+      el.classList.toggle('is-invalid', !!error);
+      el.classList.toggle('is-valid', !error);
+      return !error;
+    }
+    Object.keys(aturan).forEach(id => {
+      $(id).addEventListener('blur', () => validasi(id));
+      $(id).addEventListener('input', () => $(id).classList.contains('is-invalid') && validasi(id));
+    });
+    $('form').addEventListener('submit', e => {
+      e.preventDefault();
+      const valid = Object.keys(aturan).map(validasi).every(Boolean);
+      $('sukses').classList.toggle('d-none', !valid);
+      if (valid) { e.target.reset(); e.target.querySelectorAll('.form-control').forEach(f => f.classList.remove('is-valid')); }
+      else e.target.querySelector('.is-invalid').focus();
+    });
+
+    // 4. Tahun di footer
+    $('tahun').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
